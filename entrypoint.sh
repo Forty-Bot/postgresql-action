@@ -5,7 +5,7 @@ docker_run="$docker_run -e POSTGRES_DB=$INPUT_POSTGRESQL_DB"
 docker_run="$docker_run -e POSTGRES_USER=$INPUT_POSTGRESQL_USER"
 docker_run="$docker_run -e POSTGRES_PASSWORD=$INPUT_POSTGRESQL_PASSWORD"
 
-if [ ! -z "$INPUT_POSTGRESQL_INIT_SCRIPTS" ]
+if [ -n "$INPUT_POSTGRESQL_INIT_SCRIPTS" ]
 then
   REPO=`echo "$GITHUB_REPOSITORY" | cut -d "/" -f 2`
   INIT_SCRIPT_PATH="/home/runner/work/$REPO/$REPO/$INPUT_POSTGRESQL_INIT_SCRIPTS"
